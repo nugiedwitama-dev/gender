@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block bodyblock %}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#8a2be2" fill-opacity="1" d="M0,64L48,74.7C96,85,192,107,288,149.3C384,192,480,256,576,240C672,224,768,128,864,122.7C960,117,1056,203,1152,218.7C1248,235,1344,181,1392,154.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+<div class="container">
+    <h3 class="content"><span><strong><i>Predict</i></strong></span></h2>   
+    <form action="#" method="POST" enctype="multipart/form-data">
+        <label for="upload">Upload Image <span>:</span></label>
+    <input type="file" name="image" id="upload" required="true">
+    <br>
+    <small class="notice">*allowed file type (jpg,png) </small>
+    <br>
+    <input type="submit" class='btn btn-outline-primary' value="Upload & Predict">
+    </form>
+</div>
+
+{% if fileupload %}
+  <div class="container">
+      <div class="row">
+        <div class="left-img">
+            <p class="content">Original Image</p>
+            <img src="{{url_for('static',filename='uploads/')}}{{img_name}}" alt="gender_predictor" width={{ w }} height='200'>
+        </div>
+        <div class="right-img">
+            <p class="content">Hasil Prediksi</p>
+            <img src="{{url_for('static',filename='predict/')}}{{img_name}}" alt="genderpredictor" width={{ w }} height='200'>
+        </div>
+      </div>
+  </div>
+  <div class="spacer"></div>
+  {% endif %}
+{% endblock %}
+
+<style>
+    .left{
+        float: left;
+        position: absolute;
+        margin: 0;
+        padding: 0px;
+        width: 40%;
+    }
+    .right{
+        width: 40%;
+        float: right;
+        padding: 0px;
+        position: absolute;
+    }
+</style>
