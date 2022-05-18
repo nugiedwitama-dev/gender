@@ -1,1 +1,1 @@
-gunicorn -w 4 -b 127.0.0.1:8000 src.wsgi:main
+gunicorn -w 4 -b 127.0.0.1:5000 src.wsgi:main
